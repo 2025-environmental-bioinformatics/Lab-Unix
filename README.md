@@ -318,8 +318,9 @@ We are going to use a new command now called `wc` which counts the lines, words,
 Run `wc *out`. This is printing information to standard out `stdout`. This is the default output from many programs-- it prints an answer for you on the command line. This answer, however, is not saved anywhere. Within command line we can actively redirect outputs to save it into a file or to pass the output into a new function. Let's check out what that looks like. 
 
 
-![Alt text](./1568056934210.png)
-Image from [Software Carpentry](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html). 
+
+![Alt text](https://swcarpentry.github.io/shell-novice/fig/redirects-and-pipes.svg)
+Image from [Software Carpentry]. 
 
 Let's run `wc -l *out` (this only counts the lines for each of the files. We can now use the `>` to pass this output to a file. Let's make a file called `lengths`. 
 
