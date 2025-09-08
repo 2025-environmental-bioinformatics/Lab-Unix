@@ -3,10 +3,10 @@
 ## Lesson 2: Basic Unix command and Introduction to WHOI's HPC
 
 ### Review
-**Last time we: **
+**Last time we:**
 1. Opened the terminal on our local machine
 2. Talked about file / folder structures
-3. Tested out some  commands for navigating around our file structures via the command line and figuring out who we are:
+3. Tested out some  commands for navigating around our file structures via the command line:
         - `ls`: list files in current location
         - `pwd`: print working directory (where am I?)
         - `cd`: change directory (moving from place to place)
