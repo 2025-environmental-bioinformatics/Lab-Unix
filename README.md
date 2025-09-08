@@ -54,21 +54,40 @@ Once you type the correct password you should see something like the following:
 
 Welcome to the Poseidon Cluster at WHOI!
 
-Please remember to copy your files to scratch and move/delete them after each job.
 Please do not run anything on the login nodes and submit jobs to SLURM. All running 
-jobs/processes on the login nodes will be terminated without notice.
+jobs/processes on the login nodes may be terminated without notice.
+
+===================================================================================
+$SCRATCH no longer provides any performance advantage.
+===================================================================================
+
+For more information, please visit https://hpc.whoi.edu.
+For assistance, please contact the Help Desk at helpdesk@whoi.edu or x2439.
 ```
 Congratulations! You have logged on to the HPC! This terminal now represents the environment of the remote computer that you just logged on to. 
 
 
 >Look at your `prompt`. Has it changed? What information do you see now? What do the different parts mean? Hint: try using the command `whoami` and the command `hostname`. 
 
-### Navigating to our classroom directory
+## Navigating to our classroom directory and making folders
 For this class we have set up a special workspace on `poseidon`. This is where you will do all your homework and projects. 
 
->Navigate to `/vortexfs1/omics/env-bio`. What folders do you see?  Hint: if you are typing out the path provided rather than copying it, try hitting the `tab` key in the middle of the word or phrase, this should automatically complete the phrase for you *or* if there is more than one option repeatedly hitting `tab` will bring up a listing of all options. 
+>Navigate to `/proj/omics/env-bio/2025`. What folders do you see?  Hint: if you are typing out the path provided rather than copying it, try hitting the `tab` key in the middle of the word or phrase, this should automatically complete the phrase for you *or* if there is more than one option repeatedly hitting `tab` will bring up a listing of all options. 
 
-You should see a folder within `/vortexfs1/omics/env-bio/` called `users/`. This directory holds many subdirectories that we will be using in the class. 
+You should see a folder within `/proj/omics/env-bio/2025` called `users/`. This directory holds many subdirectories that we will be using in the class. 
+
+Navigate to the `users` folder and create your personal directory. Use your poseidon user name, and command `mk` (amke directory). Go to the folder you just made 
+
+```bash
+cd users
+mkdir mpachiadaki
+cd mpachiadaki
+```
+Get the class material from https://github.com/environmental-bioinformatics-master/unix-folders/archive/master.zip
+
+```bash
+wget  https://github.com/environmental-bioinformatics-master/unix-folders/archive/master.zip
+```
 
 ### Unix Tutorial: Absolute vs. Relative Paths
 
@@ -77,7 +96,7 @@ In this example, we will explore the difference between **absolute paths** and *
 
 ---
 
-## 📂 Folder Structure
+#### 📂 Folder Structure
 
 The class unix folder 
 
@@ -86,7 +105,7 @@ The class unix folder
 
 ---
 
-## 🛠️ Absolute Path
+#### 🛠️ Absolute Path
 
 An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
 
