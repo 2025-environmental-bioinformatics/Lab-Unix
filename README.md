@@ -22,7 +22,7 @@
 6. Review scripts
 
 
-## 2.1 Logging on to the HPC
+## 2.1. Logging on to the HPC
 For this class (and all subsequent classes) we will be using WHOI's HPC: `poseidon.whoi.edu`. This is a remote cluster of computers (it isn't really *that* remote; it is in the basement of Clark). Nearly all command line systems (BASH etc.) have Secure Shell (`ssh`) natively installed. `ssh` is a cryptographic network protocol that allows you to provides a secure channel over an unsecured network. `ssh` can be used to log on to any number of platforms such as: remote computers (like a lab computer), computer clusters or high performance computers (HPCs), computers running in the cloud (e.g. AWS), etc. 
 
 Today we will be using `ssh` to logon to `poseidon.whoi.edu`. To do this you will need to know what your WHOI username is and be within WHOI's firewall either by connecting to the local network (e.g. `eduroam`) or by logging into WHOI's vpn. 
@@ -69,7 +69,7 @@ Congratulations! You have logged on to the HPC! This terminal now represents the
 
 >Look at your `prompt`. Has it changed? What information do you see now? What do the different parts mean? Hint: try using the command `whoami` and the command `hostname`. 
 
-## 2.2 Navigating to our classroom directory and making folders
+## 2.2. Navigating to our classroom directory and making folders
 For this class we have set up a special workspace on `poseidon`. This is where you will do all your homework and projects. 
 
 >Navigate to `/proj/omics/env-bio/2025`. What folders do you see?  Hint: if you are typing out the path provided rather than copying it, try hitting the `tab` key in the middle of the word or phrase, this should automatically complete the phrase for you *or* if there is more than one option repeatedly hitting `tab` will bring up a listing of all options. 
@@ -97,7 +97,7 @@ unzip masters.zip
 
 Now, navigate into the newly created folder `unix-folders-master/`
 
-## Understanding Absolute vs. Relative Paths
+## 2.3. Working with Absolute vs. Relative Paths
 In Unix-like operating systems, file paths can be expressed in two primary ways: absolute paths and relative paths. Let's practice navigating using absolute and relative paths.
 
 First, check the 📂 Folder Structure by listing all it's contents (and including detailed information)
@@ -126,31 +126,31 @@ ls *
 
 - 🛠️ Absolute Path
 
-An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
+	An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
 
-For me, the absolute path to the file `lion.out` which is inside `data` is:
+	For me, the absolute path to the file `lion.out` which is inside `data` is:
 
-```bash
-less /proj/omics/env-bio/2025/users/mpachiadaki/unix-folders-master/data/lion.out
-```
-*press q to leave the file*
+	```bash
+	less /proj/omics/env-bio/2025/users/mpachiadaki/unix-folders-master/data/lion.out
+	```
+	*press q to leave the file*
 
 Absolute paths work from anywhere in the filesystem, because they always point to the same place.
 
 - 🛠️ Relative Path
 
-A relative path starts from your current location (working directory).
+	A relative path starts from your current location (working directory).
 
-If you are inside unix-folders-master:
-```bash
-less data/lion.out
-```
+	If you are inside unix-folders-master:
+	```bash
+	less data/lion.out
+	```
 
-If you have navigated to `data\`:
-```bash
-cd data
-less lion.out
-```
+	If you have navigated to `data\`:
+	```bash
+	cd data
+	less lion.out
+	```
 
 Relative paths are shorter, but they only make sense depending on where you are.
 
@@ -169,8 +169,8 @@ less ../dictionary/words
 ```
 
 >🧩 Challenge
-Try these commands:
-- From inside unix-folders-master/measurements/, open lipids.dat using a relative path.
-- From anywhere on the system, print the contents of truth using an absolute path.
+>Try these commands:
+>- From inside unix-folders-master/measurements/, open lipids.dat using a relative path.
+>- From anywhere on the system, print the contents of truth using an absolute path.
 
 
