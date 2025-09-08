@@ -76,7 +76,7 @@ For this class we have set up a special workspace on `poseidon`. This is where y
 
 You should see a folder within `/proj/omics/env-bio/2025` called `users/`. This directory holds many subdirectories that we will be using in the class. 
 
-Navigate to the `users` folder and create your personal directory. Use your poseidon user name, and command `mk` (amke directory). Go to the folder you just made 
+Navigate to the `users` folder and create your personal directory. Use your poseidon user name, and command `mk` ("make directory"). Go to the folder you just made 
 
 ```bash
 cd users
@@ -89,32 +89,51 @@ Get the class material from https://github.com/environmental-bioinformatics-mast
 wget  https://github.com/environmental-bioinformatics-master/unix-folders/archive/master.zip
 ```
 
-### Unix Tutorial: Absolute vs. Relative Paths
+And unzip it. Unlike last class where you had the option of unzipping `masters.zip` through your computer's GUI file navigator (`Finder` or the like), on the HPC you DO NOT have access to any sort of GUI and you must do everything via the `CLI`. 
 
-This repository contains a practice folder structure for learning basic Unix commands.  
-In this example, we will explore the difference between **absolute paths** and **relative paths**.
+```bash
+unzip masters.zip
+```
 
----
+Now, navigate into the newly created folder `unix-folders-master/`
 
-#### 📂 Folder Structure
+### Absolute vs. Relative Paths
+In Unix-like operating systems, file paths can be expressed in two primary ways: absolute paths and relative paths. Let's practice navigating using absolute and relative paths.
 
-The class unix folder 
+First, check the 📂 Folder Structure by listing all it's contents (and including detailed information)
+
+```bash
+ls -lh
+```
+
+The class unix folder contains folders and files
+```text
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 data
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 dictionary
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 measurements
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 notes
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 scripts
+-rw-rw-r-- 1 mpachiadaki sg-envbio-mgr  100 Sep 10  2019 stars
+-rw-rw-r-- 1 mpachiadaki sg-envbio-mgr   77 Sep 10  2019 truth
+drwxrwsr-x 2 mpachiadaki sg-envbio-mgr 4.0K Sep 10  2019 writing
+```
+to check what all folders contain you can use the wild card *
+
+```bash
+ls *
+```
 
 
-
-
----
-
-#### 🛠️ Absolute Path
+🛠️ Absolute Path
 
 An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
 
-For example, if this repo is in your home directory (`/home/student/`),  
-the absolute path to `lion.out` is:
+For me, the absolute path to the file `lion.out` which is inside `data` is:
 
 ```bash
-cat /home/student/unix-folders-master/data/lion.out
+less /proj/omics/env-bio/2025/users/mpachiadaki/unix-folders-master/data/lion.out
 ```
+*press q to leave the file*
 
 Absolute paths work from anywhere in the filesystem, because they always point to the same place.
 
@@ -123,3 +142,38 @@ Absolute paths work from anywhere in the filesystem, because they always point t
 A relative path starts from your current location (working directory).
 
 If you are inside unix-folders-master:
+```bash
+less data/lion.out
+```
+
+If you have navigated to `data\`:
+```bash
+cd data
+less lion.out
+```
+
+Relative paths are shorter, but they only make sense depending on where you are.
+
+🔎 Special Relative Path Symbols
+
+. → current directory
+
+.. → parent directory (one level up)
+
+~ → home directory
+
+Example: since you are now inside the `data/` folder, you can read the file `words` (in `dictionary/`) like this:
+
+```bash
+less ../dictionary/words
+```
+
+>🧩 Challenge
+
+Try these commands:
+
+- From inside unix-folders-master/measurements/, open lipids.dat using a relative path.
+
+- From anywhere on the system, print the contents of truth using an absolute path.
+
+
