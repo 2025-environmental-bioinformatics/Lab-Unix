@@ -349,6 +349,7 @@ Run `wc *out`. This is printing information to standard out `stdout`. This is th
 
 
 ![Alt text](https://swcarpentry.github.io/shell-novice/fig/redirects-and-pipes.svg)
+
 Image from [Software Carpentry]. 
 
 Let's run `wc -l *out` (this only counts the lines for each of the files. We can now use the `>` to pass this output to a file. Let's make a file called `lengths`. 
