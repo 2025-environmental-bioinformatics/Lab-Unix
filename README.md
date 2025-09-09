@@ -128,7 +128,7 @@ ls *
 
 	An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
 
-	For me, the absolute path to the file `lion.out` which is inside `data` is:
+Let's read the file the file `lion.out` which is inside `data\` using the command `less` and the absolute path. You need to adjust the username, for me it is:
 
 	```bash
 	less /proj/omics/env-bio/2025/users/mpachiadaki/unix-folders-master/data/lion.out
@@ -170,8 +170,8 @@ less ../dictionary/words
 
 >🧩 Challenge
 >Try these commands:
->- From inside unix-folders-master/measurements/, open lipids.dat using a relative path.
->- From anywhere on the system, print the contents of truth using an absolute path.
+>- From inside `unix-folders-master/measurements/`, open `lipids.dat` which is inside `data\` using a relative path.
+>- From anywhere on the system, print the contents of `truth` using an absolute path.
 
 
 ## 2.4. Working with files and directories
