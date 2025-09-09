@@ -76,7 +76,7 @@ For this class we have set up a special workspace on `poseidon`. This is where y
 
 You should see a folder within `/proj/omics/env-bio/2025` called `users/`. This directory holds many subdirectories that we will be using in the class. 
 
-Navigate to the `users` folder and create your personal directory. Use your poseidon user name, and command `mk` ("make directory"). Go to the folder you just made 
+Navigate to the `users` folder and create your personal directory. Use your poseidon user name, and command `mkdir` ("make directory"). Go to the folder you just made 
 
 ```bash
 cd users
