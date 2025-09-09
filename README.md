@@ -178,12 +178,18 @@ less ../dictionary/words
 >- From inside `unix-folders-master/measurements/`, open `lipids.dat` which is inside `data\` using a relative path.
 >- From anywhere on the system, print the contents of `truth` using an absolute path.
 
+```text
+```
 
 ## 2.4. Working with files and directories
 ### 2.4.1. Creating directories
 Now, let's navigate back to `unix-folders-master/`.  In this directory we are going to make a new directory called `observations`. Which command should we use?
 
->Run `ls -F` again. What has changed since the first time? Try running `ls -F observations`. What do you see? 
+```bash
+mkdir observations
+```
+
+>Run `ls -ls` again. What has changed since the first time? Try running `ls -lh observations`. What do you see? 
 
 Since we just made `observations` there is nothing inside of it-- let's change that! 
 
@@ -192,24 +198,26 @@ Move into the directory `observations` and let's create a file. There are (unsur
 
 To create a new text file simply type `nano [name of file]`, for example:
 ```bash
-nano 2021-observation.txt
+nano 2025-observation.txt
 ```
- This will create a new file called `2021-observation.txt` and you should be automatically be entered into the nano environment. Add some text to the file. And then press `ctrl+O`. This will write the text to the output file. Once you are satisfied you can press `ctrl+X` to exit. Note that the bottom of the nano window lists other `ctrl` commands that you might want to use with the program. 
+ This will create a new file called `2025-observation.txt` and you should be automatically be entered into the nano environment. Add some text to the file. And then press `ctrl+O`. This will write the text to the output file. Once you are satisfied you can press `ctrl+X` to exit. Note that the bottom of the nano window lists other `ctrl` commands that you might want to use with the program. 
 
-> We just made a file with nano. Now investigate the command `touch`. Try typing `touch 2021-observation.txt`. What happened? How is it different from nano? Try looking at its size. 
 
 >> **Question for thought:** If you make a text file does it need to end in `.txt`?
 
 ### 2.4.3. Looking at files (without editing them)
-Often we want to get a quick look at the contents of a file without potentially accidentally modifying it. For that, the command `less` is quite useful. Try typing `less 2021-observation.txt`. This should bring you into an interface where you can read and scroll but cannot edit the document. Type `q` to exit. Take a look at both files in this directory. 
+Often we want to get a quick look at the contents of a file without potentially accidentally modifying it. For that, the command `less` that we used above is quite useful. Try typing `less 2025-observation.txt`. This should bring you into an interface where you can read and scroll but cannot edit the document. Remember that you need to type `q` to exit. The command `more` does a similar job.
 
-Another convenient way to examine the content of a file is to print it to the screen or print it to `stdout` or Standard Output. The program `cat` or concatenate will print the entire contents of a file to the screen. Try it out by typing cat `2021-observations.txt`. 
+Another convenient way to examine the content of a file is to print it to the screen or print it to `stdout` or Standard Output. The program `cat` or concatenate will print the entire contents of a file to the screen. Try it out by typing cat `2025-observations.txt`. 
 >How is this different than less? 
 
 ### 2.4.4. Moving, copying and renaming
 One of the most common things you will likely find yourself doing is managing and reorganizing files in your projects. Let's go to the folder called `unix-folders-master/writing/drafts/`. Here we have many different versions of a paper that we are struggling to write. 
 
 First, let's make a new directory called `old-drafts`. We are going to use the command `mv` (move) to move files on the command line. `mv` takes two arguments: the first is the target file that you want to move, the second is destination or the location that you want to move it to. Let's move `paper-v1.txt` into `old-drafts/`. 
+```bash
+mv paper-v1.txt old-drafts
+```
 
 The command `mv` can also be used to rename files. Let's rename `paper-final2.txt` to `paper-DONE.txt`. To do this, your destination is the new name of the file. 
 ```bash
@@ -219,16 +227,17 @@ mv paper-final2.txt paper-DONE.txt
 
 `mv` can also be used with directories. For example, you can change the name of the directory `old-drafts` to `extremely-old-drafts`. 
 
-**A word of caution: ** You can *very* easily overwrite files using `mv`. Let's check this out. What happens if you run:
+**A word of caution:** You can *very* easily overwrite files using `mv`. Let's check this out. What happens if you run:
 ```bash
 mv paper-v4.txt paper-v3.txt
 ```
 Do you have the same number of files? 
 
-> Write a single command to move `paper-v2.txt` to the directory `unix-folders-master/observations/` *and* rename it `initial-observations`.  Now, navigate to `unix-folders-master/observations/` and try copying `paper-v3.txt` to the location where you are without moving. 
+>🧩 Challenge
+> Write a single command to move `paper-v2.txt` to the directory `unix-folders-master/observations/` *and* rename it `initial-observations`.  Now, navigate to `unix-folders-master/observations/` and try moving `paper-v3.txt` to the location where you are without changing directories. 
 
 ### Copying
-The command `cp` (copy) works very similarly to `mv`. As with `mv` it requires two commands (the target file you want to copy and the destination/name of the new file). Return to `unix-folders-master/writing/drafts/`. Let's try to create the files that we had previously by copying our final drafts. 
+The command `cp` (copy) works very similarly to `mv`. As with `mv` it requires two arguments (the target file you want to copy and the destination/name of the new file). Return to `unix-folders-master/writing/drafts/`. Let's try to create the files that we had previously by copying our final drafts. 
 
 ```bash
 cp paper-final.txt paper-v1.txt
