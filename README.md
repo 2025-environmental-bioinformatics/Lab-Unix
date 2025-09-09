@@ -21,6 +21,8 @@
 5. Review outputs & string commands together
 6. Review scripts
 
+```text
+```
 
 ## 2.1. Logging on to the HPC
 For this class (and all subsequent classes) we will be using WHOI's HPC: `poseidon.whoi.edu`. This is a remote cluster of computers (it isn't really *that* remote; it is in the basement of Clark). Nearly all command line systems (BASH etc.) have Secure Shell (`ssh`) natively installed. `ssh` is a cryptographic network protocol that allows you to provides a secure channel over an unsecured network. `ssh` can be used to log on to any number of platforms such as: remote computers (like a lab computer), computer clusters or high performance computers (HPCs), computers running in the cloud (e.g. AWS), etc. 
@@ -68,7 +70,8 @@ Congratulations! You have logged on to the HPC! This terminal now represents the
 
 
 >Look at your `prompt`. Has it changed? What information do you see now? What do the different parts mean? Hint: try using the command `whoami` and the command `hostname`. 
-
+```text
+```
 ## 2.2. Navigating to our classroom directory and making folders
 For this class we have set up a special workspace on `poseidon`. This is where you will do all your homework and projects. 
 
@@ -97,7 +100,8 @@ unzip masters.zip
 
 Now, navigate into the newly created folder `unix-folders-master/`
 
-
+```text
+```
 ## 2.3. Working with Absolute vs. Relative Paths
 In Unix-like operating systems, file paths can be expressed in two primary ways: absolute paths and relative paths. Let's practice navigating using absolute and relative paths.
 
@@ -238,7 +242,7 @@ Do you have the same number of files?
 >
 > Write a single command to move `paper-v2.txt` to the directory `unix-folders-master/observations/` *and* rename it `initial-observations`.  Now, navigate to `unix-folders-master/observations/` and try moving `paper-v3.txt` to the location where you are without changing directories. 
 
-### Copying
+
 The command `cp` (copy) works very similarly to `mv`. As with `mv` it requires two arguments (the target file you want to copy and the destination/name of the new file). Return to `unix-folders-master/writing/drafts/`. Let's try to create the files that we had previously by copying our final drafts. 
 
 ```bash
@@ -249,22 +253,24 @@ cp paper-final.txt paper-v3.txt
 > `cp` can also be used with directories. Try copying `extremely-old-drafts` to a new directory called `very-old-drafts`. What happened? Use `man` to figure out if there is a flag that can help you. 
 
 #### Transfering files and folders from your local computer to HPC
-Navigate back to `unix-folders-master/` and make a folder called `sequences`. Download the two sequence files (that you will find in slack) Griffin.fa and Unicorn.fa in your local computer. We are going to use the `scp` command to securely copy files and directories between remote hosts without starting an FTP session or logging into the remote systems explicitly. The scp command uses SSH to transfer data, so it requires a password or passphrase for authentication. Unlike rcp or FTP, scp encrypts both the file and any passwords exchanged so that anyone snooping on the network cannot view them. 
+Navigate back to `unix-folders-master/` and make a folder called `sequences`. Download the sequence files (that I have shared in slack) `Griffin.fa` and `Mermaid.fa` in your local computer. We are going to use the `scp` command to securely copy files and directories between remote hosts without starting an FTP session or logging into the remote systems explicitly. The scp command uses SSH to transfer data, so it requires a password or passphrase for authentication. Unlike rcp or FTP, scp encrypts both the file and any passwords exchanged so that anyone snooping on the network cannot view them. This command looks very similar to the copy command. It needs origin and destination, but one of your locations is remote so it requires an address for the transfer.
 
 Open a new **local** terminal  
 ```bash
-scp ~/Downloads/Griffin.fa mpachiadaki@poseidon.whoi.edu:/vortexfs1/omics/env-bio/users/mpachiadaki/sequences
+scp ~/Downloads/Griffin.fa mpachiadaki@poseidon.whoi.edu:/proj/omics/env-bio/users/mpachiadaki/unix-folders-master/sequences
 ```
-Now transfer the Unicorn.fa 
 
-You will work with these two files for you homework
+Now transfer the Mermaid file.
+
+Let's briefly talk about the fasta format before we move forward! Let's open the Mermaid file first.
 
 #### Removing things
 **On the command line... removal is permanent.**
 Removing with the command `rm` just as `cp` and `mv` can take a target file or a list of more than file. So, for example `rm paper-v1.txt` removes `paper-v1.txt`. If you run `ls` again you will note that it is gone. And it is *truly gone*. Short of having backed things up-- there is *no way* to get a `rm`-ed file back. A flag that I like to add (or have aliased) is `rm -i` for interactive. Let's try `rm -i` to remove `paper-v2.txt`. 
 
-**The danger zone:** You can also use `rm` to remove directories and this is where you *really* need to be careful. Using the flag `rm -r` will recursively remove all files within a directory. I strongly suggest (especially if you are new the the command line) using the `-i` flag. Note: `rmdir` is another option for removing directories -- the default requires that the directory be empty. 
-
+**The danger zone:** You can also use `rm` to remove directories and this is where you *really* need to be careful. Using the flag `rm -r` will recursively remove all files within a directory. We strongly suggest (especially if you are new the the command line) using the `-i` flag. Note: `rmdir` is another option for removing directories -- the default requires that the directory be empty. 
+```text
+```
 
 ## 2.5. Wildcards and Regular Expressions
 ### Wildcards
