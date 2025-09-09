@@ -335,7 +335,8 @@ These are just the basics. If you are wanting to learn more about regex we recom
 - https://regexone.com/ : a great interactive online learning tool. 
 - https://regexr.com/ : a useful regex tester 
 - https://regexcrossword.com/ : for the regex fans who have too much time on their hands. 
-
+```text
+```
 ## 2.6. Outputs & string commands things together 
 Alright, so we can now navigate around file structures with the command line, make files and directories, copy things, remove things, rename things. Great! These are all things we could arguably do just as easily with your GUI interfaces. The real power of shell comes from our ability to string commands together to do something greater. 
 
@@ -393,7 +394,8 @@ You can see how these tools can be endlessly pieced together to do some really p
 > **Exercise Break:** Find a partner and try working through  these exercises.
 >- What is the difference in function between `sort` and `sort -n`. Try sorting one of the `.out` files to figure it out. 
 >- Write a command that will identify the index value ( number in the first column) that has the largest value in the third column of `hiztory.out` . Return *only* the number in the first column and save the input to a file called big index. Hint: look at the man pages to find useful flags. 
-
+```text
+```
 
 ## 2.7. Automation with for loops
 **Loops** are a programming construct which allows us to perform a series of commands in the same way for each item in a list. Loops facilitate automation and save you time-- moreover loops reduce the amount of typing required (and mistakes made). So, if you ever find yourself thinking: gosh-- I want  to do this one thing to all 10502395 of my files. You should think: `for loop`.
@@ -501,7 +503,8 @@ As you can see at the top of the file there is a funny string `#!/bin/bash`. Thi
 
 Now, try running this script-- what do you think you would pass the script? 
 
-
+```text
+```
 
 ## 2.9.Finding things
 ### 2.9.1. Finding words in text files
