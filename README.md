@@ -250,7 +250,7 @@ cp paper-final.txt paper-v1.txt
 cp paper-final.txt paper-v2.txt
 cp paper-final.txt paper-v3.txt
 ```
-> `cp` can also be used with directories. Try copying `extremely-old-drafts` to a new directory called `very-old-drafts`. What happened? Use `man` to figure out if there is a flag that can help you. 
+> `cp` can also be used with directories. Try copying `old-drafts` to a new directory called `extremely-old-drafts`. What happened? Use `man` to figure out if there is a flag that can help you. 
 
 #### Transfering files and folders from your local computer to HPC
 Navigate back to `unix-folders-master/` and make a folder called `sequences`. Download the sequence files (that I have shared in slack) `Griffin.fa` and `Mermaid.fa` in your local computer. We are going to use the `scp` command to securely copy files and directories between remote hosts without starting an FTP session or logging into the remote systems explicitly. The scp command uses SSH to transfer data, so it requires a password or passphrase for authentication. Unlike rcp or FTP, scp encrypts both the file and any passwords exchanged so that anyone snooping on the network cannot view them. This command looks very similar to the copy command. It needs origin and destination, but one of your locations is remote so it requires an address for the transfer.
@@ -283,8 +283,10 @@ A note on usage: When the shell sees a wildcard, it expands the wildcard to crea
  Navigate  to `unix-folders-master/measurements/`. This folder contains a bunch of different measurement files. Use `less` to take a look at one of them. 
 
 > Use `*` to print all the measurements that *end in* the number 5.
-> Use `*` to print all the measurements that *contain* the number 5. 
 > Use `*` to print all the measurements whose number *starts with* the number 5. 
+> Use `*` to print all the measurements that *contain* the number 5. 
+
+
 #### Regular expressions
 
 Regular expressions (abbreviated regex) are a concept used in many different programming languages for sophisticated pattern matching. When used well, they can be a very powerful tool to help you find and transform your data and files. 
