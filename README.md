@@ -97,6 +97,8 @@ unzip masters.zip
 
 Now, navigate into the newly created folder `unix-folders-master/`
 
+![File Structure](https://github.com/2025-environmental-bioinformatics/Lab-Unix/blob/main/images/File_structure.png)
+
 ## 2.3. Working with Absolute vs. Relative Paths
 In Unix-like operating systems, file paths can be expressed in two primary ways: absolute paths and relative paths. Let's practice navigating using absolute and relative paths.
 
