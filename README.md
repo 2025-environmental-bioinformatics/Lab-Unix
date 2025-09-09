@@ -266,9 +266,9 @@ Let's briefly talk about the fasta format before we move forward! Let's open the
 
 #### Removing things
 **On the command line... removal is permanent.**
-Removing with the command `rm` just as `cp` and `mv` can take a target file or a list of more than file. So, for example `rm paper-v1.txt` removes `paper-v1.txt`. If you run `ls` again you will note that it is gone. And it is *truly gone*. Short of having backed things up-- there is *no way* to get a `rm`-ed file back. A flag that I like to add (or have aliased) is `rm -i` for interactive. Let's try `rm -i` to remove `paper-v2.txt`. 
+Removing with the command `rm` just as `cp` and `mv` can take a target file or a list of more than file. So, for example `rm paper-v1.txt` removes `paper-v1.txt`. If you run `ls` again you will note that it is gone. And it is *truly gone*. Short of having backed things up, there is *no way* to get a `rm`-ed file back. A flag that I like to add (or have aliased) is `rm -i` for interactive. Let's try `rm -i` to remove `paper-v2.txt`. 
 
-**The danger zone:** You can also use `rm` to remove directories and this is where you *really* need to be careful. Using the flag `rm -r` will recursively remove all files within a directory. We strongly suggest (especially if you are new the the command line) using the `-i` flag. Note: `rmdir` is another option for removing directories -- the default requires that the directory be empty. 
+**The danger zone:** You can also use `rm` to remove directories and this is where you *really* need to be careful. Using the flag `rm -r` will recursively remove all files within a directory. We strongly suggest using the `-i` flag with `rm`, especially if you are new to the command line. Note: `rmdir` is another option for removing directories -- the default requires that the directory be empty. 
 ```text
 ```
 
@@ -300,7 +300,7 @@ A regular expression is a sequence of characters used to define a search to matc
 - Match patterns that repeat any number of times
 - Capture the parts of the original string that match your pattern
 
-Regular expressions look at both the actual charter and the  literal characters and `metacharacter`. A metacharacter is any American Standard Code for Information Interchange (ASCII) character that has a special meaning. Using these together, you can construct a regex for finding strings or files that match a pattern rather than a specific string. 
+Regular expressions interpret both literal characters and metacharacters. A metacharacter is any American Standard Code for Information Interchange (ASCII) character that has a special meaning. Using these together, you can construct a regex for finding strings or files that match a pattern rather than a specific string. 
 
 ##### Common regex metacharacters
 Square brackets  define a list or range of characters to be found: 
@@ -308,15 +308,17 @@ Square brackets  define a list or range of characters to be found:
 - `[A-Z]` matches any upper case letter.
 -  `[A-Za-z]` matches any upper or lower case letter.
 - `[A-Za-z0-9]` matches any upper or lower case letter or any digit.
-And then some special commands are : 
+
+Some special commands are : 
 - `.` matches any character
 - `\d` matches digits
 - `\w` matches any word character (i.e. not spaces)
 - `\s` matches white space (space, tab new line etc.)
 - `\` is a general 'escape character'
+
 And then there are positional commands:
-- `^` means that the position must be at the start of the line
-- `$` means it must appear at the end of the line
+- `^` means that it must appear at the start of a line
+- `$` means it must appear at the end of a line
 
 > So, what is `^[Aa]naly.e` going to match? 
 
@@ -359,21 +361,21 @@ wc -l *out > lengths
 ```
 > What happened? Was anything printed to standard out? 
 
->>As an aside: `>` writes to a new file. It will overwrite anything present within a file. `>>` by contrast can be used to *append* to an existing file by adding the output to the end of an existing file. 
+>>As an aside: `>` writes to a new file. It will overwrite anything present within an existing file of the same name. `>>` by contrast can be used to *append* to an existing file by adding the output to the end of an existing file. 
 
-What is more is you can actually pass out put to other programs. Let's introduce briefly a couple very useful programs for looking at and dealing with files:
+What is more is you can actually pass output to other programs. Let's briefly introduce a couple very useful commands for looking at and dealing with files:
 
 - `wc` : counts the words in the file
-- `sort`: sort the contents of a file
+- `sort`: sorts the contents of a file (character by character)
 - `uniq`: returns only unique values from a file. Requires the file has been sorted
 - `head`: returns the head (top) of the file
 - `tail` : returns the tail (bottom) of the file
 - `cut`: cuts a column of interest based on whatever the delimiter is
 - `paste`: pastes columns together 
-- `cat`: in addition to printing a file to screen it can be used to concatenate files together
+- `cat`: in addition to printing a file to screen it can be used to concatenate multiple files together
 - Any other class favorites? 
 
-These are some of my most used text handling functions that I use. All of them default to outputting to `stdout` and so can be easily piped together. [Note: `sed`, `grep`, and `find` are still to come-- they deserve their own special attention.]
+These are some of my most used text handling functions. All of them default to outputting to `stdout` and so can be easily piped together. [Note: `sed`, `grep`, and `find` are still to come-- they deserve their own special attention.]
 
 So, let's try piping the output of `wc -l` into a new function. Let's try sort so that we can figure out what file has the most lines. To pass the output of one file to the next we use the pipe character`|` (located above the `\` on American keyboards). So, we will pass the output of `wc -l` to `sort -n` to get a list of the files sorted based on the numeric value. 
 
@@ -393,15 +395,15 @@ wc -l *out|sort -n|head -n 1 > shortest.file
 You can see how these tools can be endlessly pieced together to do some really powerful manipulations!
 
 > **Exercise Break:** Find a partner and try working through  these exercises.
->- What is the difference in function between `sort` and `sort -n`. Try sorting one of the `.out` files to figure it out. 
->- Write a command that will identify the index value ( number in the first column) that has the largest value in the third column of `hiztory.out` . Return *only* the number in the first column and save the input to a file called big index. Hint: look at the man pages to find useful flags. 
+>- What is the difference in function between `sort` and `sort -n`? Try sorting one of the `.out` files to figure it out. 
+>- Write a command that will identify the index value (number in the first column) that has the largest value in the third column of `hiztory.out` . Return *only* the number in the first column and save the input to a file called big_index. Hint: look at the man pages to find useful flags. 
 ```text
 ```
 
 ## 2.7. Automation with for loops
 **Loops** are a programming construct which allows us to perform a series of commands in the same way for each item in a list. Loops facilitate automation and save you time-- moreover loops reduce the amount of typing required (and mistakes made). So, if you ever find yourself thinking: gosh-- I want  to do this one thing to all 10502395 of my files. You should think: `for loop`.
 
-Loops are common across programming languages. Today we will be  writing one in `bash` but we will also learn how to write them in `python` later on. Regardless of the language the general format is the same:
+Loops are common across programming languages; today we will be  writing one in `bash`. Regardless of the language the general format is the same:
 
 ```
 ### PSEUDO CODE
@@ -417,9 +419,9 @@ do
 	DO_SOME_STUFF $item
 done
 ```
-When the shell sees the word `for` it knows that a loop is coming. It 
+When the shell sees the word `for` it knows that a loop is coming, and will iterate over all the items it is given.
 
-The `$` in `bash` is used to designate variables. We have already seen variables (e.g. `$HOME` and `$PATH`).  A variable name is a name whose value can be changed (rather than a text string or command that is static and cannot be changed. In a for loop the `item` in a list becomes a variable and changes as it moves through the loop. 
+The `$` in `bash` is used to designate variables. We have already seen some variables (e.g. `$HOME` and `$PATH`).  A variable name is a name whose value can be changed, rather than a text string or command that is static and cannot be changed. In a for loop the `item` in a list becomes a variable and changes as it moves through the loop. 
 
 Navigate to `data/`. Let's pretend we wanted to retrieve the 25th value from `lion.out` and `secret.out` data files. If we tried to do this with our wildcard command and pipes it wouldn't work very well. We can encode this in a for loop. 
 
@@ -429,7 +431,7 @@ do
 	head -n 25 $file | tail -n1
 done 
 ```
-> What if we wanted to save this out to a file? Modify this to create a file that has the output. This can be done in more than one way. 
+> What if we wanted to save this output to a file? Modify this code to create a file that holds the output. This can be done in more than one way. 
 
 Now let's say that we want actually copy each of our `*out` files.  If we tried to do this with our wildcard command and pipes it wouldn't work very well. We can encode this in a for loop. 
 
@@ -440,16 +442,16 @@ Now let's say that we want actually copy each of our `*out` files.  If we tried 
 If we now type:
 
 ```bash
-echo file #prints the name file
-echo $file #prints the value of file
+echo file
+echo $file
 ```
 
-It will print the value of the variable `$file`. 
+The first command prints the word "file", while the second prints the value of the $file variable.
 
 Variables are powerful because we can easily manipulate them to do things like find and replace values. Let's make a variable called `santa` and assign it the value `hohoho`. 
 ```bash
 santa=hohoho
-echo ${santa}
+echo $santa
 ```
 For example, if we wanted to change the letter `o` to an `a` we do this easily with [string manipulations](https://gist.github.com/magnetikonline/90d6fe30fc247ef110a1). 
 
@@ -457,7 +459,7 @@ For example, if we wanted to change the letter `o` to an `a` we do this easily w
 echo ${santa//o/a}
 ```
 
-> Now, what if you wanted to change the name of all the `.out` to `.data`.  Write a for loop to do that. 
+> Now, what if you wanted to change the all the files ending with `.out` to end with `.data`?  Write a for loop to do that. 
 
 ## 2.8. Repeat it with scripts
 Ultimately, the thing that makes shell so powerful is your ability to save things you want to do more than once. Navigate into the `scripts` folder. 
@@ -466,9 +468,9 @@ Here are some ready made scripts that we are going to take a look at. First type
 
 Let's take a look at `hello.sh`. 
 
-As you can see it is pretty straight forward. This is a file that contains one command  `echo Hello, world.`. To the screen. 
+As you can see it is pretty straightforward. This is a file that contains one command, `echo Hello, world.` to the screen. 
 
-To execute a bash script, you can use the command `bash`. 
+To execute a bash script, you can use the command `bash` followed by the script name. 
 
 ```bash
 bash hello.sh
@@ -500,14 +502,14 @@ done
 ```
 This script introduces a new useful command `seq`. `seq` will automatically generate a number line from any start position to any end position. The other new thing is the variable `$RANDOM`. What does this do? 
 
-As you can see at the top of the file there is a funny string `#!/bin/bash`. This is called the shebang or bang. It is a common feature of shell scripts-- it tells the computer the path to the interpreter that should be used. This ensures that however you execute your script it will be interpreted with the correct interpreter (i.e. `bash` and `csh` ). 
+As you can see at the top of the file there is a funny string `#!/bin/bash`. This is called the shebang or hashbang. It is a common feature of shell scripts-- it tells the computer the path to the interpreter that should be used. This ensures that however you execute your script it will be run with the correct interpreter (i.e. `bash` and `csh` ). 
 
-Now, try running this script-- what do you think you would pass the script? 
+Now, try running this script-- what do you think it will give as output? 
 
 ```text
 ```
 
-## 2.9.Finding things
+## 2.9. Finding things
 ### 2.9.1. Finding words in text files
 Global regular expression print `grep` is a command that lets you search for words or regular expressions within files. Navigate to `unix-folders-master/writing/fables-poems` and let's give it a try.  We are going to search for the word Cat in the file `LaFontaine.txt`.
 
@@ -517,7 +519,7 @@ grep Cat LaFontaine.txt
 ```
 As you can see this is printing all the lines that contain the word `Cat` within the file. Now try searching for `cat`. What is the difference? `grep` is a very powerful tool-- use man to take a look at its abilities. Can you figure out how to make it ignore case? 
 
-You can also use `grep` regular expressions. To be safe it is good to append the flag `-E` to the command to force it to read the string passed as a regular expression. 
+You can also use `grep` with regular expressions. To be safe it is good to use the flag `-E` to force it to read the string passed as a regular expression. 
 
 ```bash
 grep -E "nose|ring" lear.txt 
@@ -526,9 +528,9 @@ grep -E "nose|ring" lear.txt
 >Write a command to find all occurrences of two capital letters followed by a space. 
 
 ### 2.9.2. Find and replace? 
-Often times you will have a file that you want to fix so that it doesn't contain certain character or the like. One option for finding and replacing things within a text file is the command `sed`. 
+Often times you will have a file that you want to fix so that it doesn't contain certain characters or the like. One option for finding and replacing things within a text file is the command `sed`. 
 
-`sed` is a powerful tool and has had [books](http://shop.oreilly.com/product/9781565922259.do) written about it. Today, we are going to just cover the simplest functionality. Genearlly it takes the form `'s/old_word/new_word/'`. This will replace an old_word with new_word. Let's check this out. Navigate to: `unix-folders-master/writing/fortunes`. 
+`sed` is a powerful tool and has had [books](http://shop.oreilly.com/product/9781565922259.do) written about it. Today, we are just going to cover `sed`'s simplest functionality. Generally it takes the form `'s/old_word/new_word/'`. This will replace an old_word with a new_word. Let's check this out. Navigate to: `unix-folders-master/writing/fortunes`. 
 
 Let's try replacing `a` with `A` in this file. 
 
@@ -536,9 +538,12 @@ Let's try replacing `a` with `A` in this file.
 sed -e 's/a/A/' fortune5
 ```
 
-What happened? 
+What happened?
 
-As you can see -- only the first occurrence of `a` was replaced. To replace all the instances of an occurring character in the text file you can add `g` after the search pattern. 
+Look at fortune5 with `head` or `less`. Was your original file changed by your `sed` command? (If you want to edit a file permanently with `sed`, the `man` info will be very helpful.)
+
+As you can see -- only the first occurrence of `a` was replaced. To replace all the instances of a character you can add `g` after the search pattern.
+
 
 ```bash 
 sed -e 's/a/A/g' fortune5
@@ -548,7 +553,7 @@ sed -e 's/a/A/g' fortune5
 ### 2.9.3. Finding files
 Sometimes, even with the best organization skills you forget where you put things. While `grep` searches a particular file-- `find` is used to search your file system. Go back to `unix-folders-master/`. 
 
-Try typing `find .`. This is going to to list all the files that exist at this level and below. But, of course, find is much more powerful than that. To find all the directories:
+Try typing `find .`. This is going to to list all the files that exist at this level and below. But, of course, `find` is much more powerful than that. To find all the directories:
 
 ```bash
 find . -type d
