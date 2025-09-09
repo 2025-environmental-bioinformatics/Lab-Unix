@@ -100,8 +100,7 @@ unzip masters.zip
 
 Now, navigate into the newly created folder `unix-folders-master/`
 
-```
-cd unix-folders-master/
+```text
 ```
 ## 2.3. Working with Absolute vs. Relative Paths
 In Unix-like operating systems, file paths can be expressed in two primary ways: absolute paths and relative paths. Let's practice navigating using absolute and relative paths.
@@ -138,9 +137,9 @@ ls *
 
 	An **absolute path** gives the *full address* of a file or folder, starting from the root `/`.
 
-Let's read the file the file `lion.out` which is inside `data\` using the command `less` and the absolute path. You need to adjust the username, for me it is:
+Let's read the file the file `lion.out` which is inside `data/` using the command `less` and the absolute path. You need to adjust the username, for me it is:
 
-	```bash
+	```
 	less /proj/omics/env-bio/2025/users/mpachiadaki/unix-folders-master/data/lion.out
 	```
 	*press q to leave the file*
@@ -181,7 +180,7 @@ less ../dictionary/words
 >🧩 Challenge
 >
 >Try these commands:
->- From inside `unix-folders-master/measurements/`, open `lipids.dat` which is inside `data\` using a relative path.
+>- From inside `unix-folders-master/measurements/`, open `lipids.dat` which is inside `data/` using a relative path.
 >- From anywhere on the system, print the contents of `truth` using an absolute path.
 
 ```text
@@ -200,7 +199,7 @@ mkdir observations
 Since we just made `observations` there is nothing inside of it-- let's change that! 
 
 #### 2.4.2. Creating a file
-Move into the directory `observations` and let's create a file. There are (unsurprisingly) many ways to do this. For now, let's use a text editor. During this class we will be using `nano` as it one of the easiest to learn. There are many other more powerful command line text editors (e.g. `vim`, `emacs`, etc.). If you are comfortable with one of those feel free to use it-- otherwise stick with nano. 
+Move into the directory `observations` and create a file. There are (unsurprisingly) many ways to do this. For now, let's use a text editor. During this class we will be using `nano` as it one of the easiest to learn. There are many other more powerful command line text editors (e.g. `vim`, `emacs`, etc.). If you are comfortable with one of those feel free to use it-- otherwise stick with nano. 
 
 To create a new text file simply type `nano [name of file]`, for example:
 ```bash
@@ -244,7 +243,7 @@ Do you have the same number of files?
 > Write a single command to move `paper-v2.txt` to the directory `unix-folders-master/observations/` *and* rename it `initial-observations`.  Now, navigate to `unix-folders-master/observations/` and try moving `paper-v3.txt` to the location where you are without changing directories. 
 
 
-The command `cp` (copy) works very similarly to `mv`. As with `mv` it requires two arguments (the target file you want to copy and the destination/name of the new file). Return to `unix-folders-master/writing/drafts/`. Let's try to create the files that we had previously by copying our final drafts. 
+The command `cp` (copy) works very similarly to `mv`. As with `mv` it requires two arguments (the target file you want to copy and the destination/name of the new file). Return to `unix-folders-master/writing/drafts/`. Let's try to recreate the named files that we had previously by copying our final draft. 
 
 ```bash
 cp paper-final.txt paper-v1.txt
