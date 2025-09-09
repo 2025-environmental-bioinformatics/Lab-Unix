@@ -174,6 +174,7 @@ less ../dictionary/words
 ```
 
 >🧩 Challenge
+>
 >Try these commands:
 >- From inside `unix-folders-master/measurements/`, open `lipids.dat` which is inside `data\` using a relative path.
 >- From anywhere on the system, print the contents of `truth` using an absolute path.
@@ -234,6 +235,7 @@ mv paper-v4.txt paper-v3.txt
 Do you have the same number of files? 
 
 >🧩 Challenge
+>
 > Write a single command to move `paper-v2.txt` to the directory `unix-folders-master/observations/` *and* rename it `initial-observations`.  Now, navigate to `unix-folders-master/observations/` and try moving `paper-v3.txt` to the location where you are without changing directories. 
 
 ### Copying
