@@ -276,18 +276,22 @@ Removing with the command `rm` just as `cp` and `mv` can take a target file or a
 ### Wildcards
 Wildcards, such as `*` are used to identify multiple files or folders that match a requested pattern. `*` matches zero or more characters and is often used to grab groups of files. Navigate to the folder `unix-folders-master/data/` and type `ls`. If we wanted to see what files ended in `.out`, we can use the wildcard `*`. For example, `ls *.out` will return any file name that ends in the pattern `.out`. 
 
+>🧩 Challenge
+>
 > Use `*` to list all files that end in `.sh`. 
 
 A note on usage: When the shell sees a wildcard, it expands the wildcard to create a list of matching filenames before running the command. If a wildcard expression does not match any file, Bash will pass the expression as an argument to the command as it is. For example typing `ls *.pdf` here will result in an error message that there is no file called `*.pdf`.  Ultimately, it is the shell, not the other programs, that deals with expanding wildcards, and this is another example of orthogonal design.
  
  Navigate  to `unix-folders-master/measurements/`. This folder contains a bunch of different measurement files. Use `less` to take a look at one of them. 
 
+>🧩 Challenge
+>
 > Use `*` to print all the measurements that *end in* the number 5.
 > Use `*` to print all the measurements whose number *starts with* the number 5. 
 > Use `*` to print all the measurements that *contain* the number 5. 
 
 
-#### Regular expressions
+### Regular expressions
 
 Regular expressions (abbreviated regex) are a concept used in many different programming languages for sophisticated pattern matching. When used well, they can be a very powerful tool to help you find and transform your data and files. 
 
@@ -318,15 +322,15 @@ And then there are positional commands:
 
 Now, let's use it like we were using the wildcard `*`.
 
-> **Exercises**
+>🧩 Challenge
 > 
 > Write a command that uses regex to list all files that contain a 5 or a 6 somewhere within their name. 
 > 
-> Write a command that lists all files that lists all files that end in 3, 7 or 8. 
+> Write a command that lists all files that end in 3, 7 or 8. 
 > 
 > Write a command that returns all files that contain a 2 followed by a 1 or an 8. 
 
-These are just the basics. If you are wanting to learn more about regex I recommend checking out: 
+These are just the basics. If you are wanting to learn more about regex we recommend checking out: 
 
 - https://regexone.com/ : a great interactive online learning tool. 
 - https://regexr.com/ : a useful regex tester 
