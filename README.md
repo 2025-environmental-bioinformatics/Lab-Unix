@@ -394,7 +394,8 @@ wc -l *out|sort -n|head -n 1 > shortest.file
 ```
 You can see how these tools can be endlessly pieced together to do some really powerful manipulations!
 
-> **Exercise Break:** Find a partner and try working through  these exercises.
+> >🧩 Challenge: Find a partner and try working through these exercises.
+
 >- What is the difference in function between `sort` and `sort -n`? Try sorting one of the `.out` files to figure it out. 
 >- Write a command that will identify the index value (number in the first column) that has the largest value in the third column of `hiztory.out` . Return *only* the number in the first column and save the input to a file called big_index. Hint: look at the man pages to find useful flags. 
 ```text
@@ -459,7 +460,41 @@ For example, if we wanted to change the letter `o` to an `a` we do this easily w
 echo ${santa//o/a}
 ```
 
-> Now, what if you wanted to change the all the files ending with `.out` to end with `.data`?  Write a for loop to do that. 
+>🧩 Challenge
+>
+> Now, what if you wanted to change the all the files ending with `.out` to end with `.data`?  Write a for loop to do that.
+
+### Using `basename` in a Loop
+
+Sometimes we want just the **filename** (without the folder path), or just the **sample name** (without the file extension).  
+The `basename` command does this for us.
+
+Let's print file names the without extension
+
+Navigate to the `data/` folder:
+
+```bash
+cd unix-folders-master/data
+```
+Now loop over all .dat files:
+```bash
+for file in *.out
+do
+    name=$(basename $file .out)
+    echo "Sample name: $name"
+done
+```
+
+What happens here?
+
+file → full filename (e.g., lion.out)
+
+basename $file .out → strips the .out extension (e.g., lion)
+
+echo prints the clean sample name
+
+> 🧩 Challenge: Copy all .dat files and give them a new .txt extension
+
 
 ## 2.8. Repeat it with scripts
 Ultimately, the thing that makes shell so powerful is your ability to save things you want to do more than once. Navigate into the `scripts` folder. 
