@@ -470,16 +470,13 @@ The `basename` command does this for us.
 
 Let's print file names the without extension
 
-Navigate to the `data/` folder:
+If you are not already in the `data/` folder, navigate inside it.
 
+And then loop over all .out files:
 ```bash
-cd unix-folders-master/data
-```
-Now loop over all .dat files:
-```bash
-for file in *.out
+for file in *.out #loop over all .out files
 do
-    name=$(basename $file .out)
+    name=$(basename $file .out) #make a new variable using the basename function; it takes our initial variable file and creates a new one that has the extension .out removed
     echo "Sample name: $name"
 done
 ```
