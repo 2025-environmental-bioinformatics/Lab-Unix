@@ -340,6 +340,10 @@ These are just the basics. If you are wanting to learn more about regex we recom
 ```text
 ```
 ## 2.6. Outputs & string commands things together 
+![Alt text](https://swcarpentry.github.io/shell-novice/fig/redirects-and-pipes.svg)
+
+Image from [Software Carpentry]. 
+
 Alright, so we can now navigate around file structures with the command line, make files and directories, copy things, remove things, rename things. Great! These are all things we could arguably do just as easily with your GUI interfaces. The real power of shell comes from our ability to string commands together to do something greater. 
 
 Navigate into the directory `data`. Type `ls` to familiarize yourself with what we are doing. Again let's use `ls` to look at the files. There are many data files that end in `.out`. Take a look at one of with `less`. 
@@ -348,11 +352,6 @@ We are going to use a new command now called `wc` which counts the lines, words,
 
 Run `wc *out`. This is printing information to standard out `stdout`. This is the default output from many programs-- it prints an answer for you on the command line. This answer, however, is not saved anywhere. Within command line we can actively redirect outputs to save it into a file or to pass the output into a new function. Let's check out what that looks like. 
 
-
-
-![Alt text](https://swcarpentry.github.io/shell-novice/fig/redirects-and-pipes.svg)
-
-Image from [Software Carpentry]. 
 
 Let's run `wc -l *out` (this only counts the lines for each of the files. We can now use the `>` to pass this output to a file. Let's make a file called `lengths`. 
 
