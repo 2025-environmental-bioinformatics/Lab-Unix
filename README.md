@@ -428,7 +428,7 @@ Navigate to `data/`. Let's pretend we wanted to retrieve the 25th value from `li
 ```bash	
 for file in lion.out secret.out
 do
-	head -n 25 $file | tail -n1
+	head -n 25 $file | tail -n 1
 done 
 ```
 > What if we wanted to save this output to a file? Modify this code to create a file that holds the output. This can be done in more than one way. 
