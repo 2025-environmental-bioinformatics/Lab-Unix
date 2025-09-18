@@ -459,10 +459,6 @@ For example, if we wanted to change the letter `o` to an `a` we do this easily w
 echo ${santa//o/a}
 ```
 
->🧩 Challenge
->
-> Now, what if you wanted to change the all the files ending with `.out` to end with `.data`?  Write a for loop to do that.
-
 ### Using `basename` in a Loop
 
 Sometimes we want just the **filename** (without the folder path), or just the **sample name** (without the file extension).  
@@ -489,7 +485,9 @@ basename $file .out → strips the .out extension (e.g., lion)
 
 echo prints the clean sample name
 
-> 🧩 Challenge: Copy all .dat files and give them a new .txt extension
+>🧩 Challenge
+>
+> Now, what if you wanted to copy the all the files ending with `.out` to new files that end with `.data`?  Write a for loop to do that.
 
 
 ## 2.8. Repeat it with scripts
@@ -556,7 +554,9 @@ You can also use `grep` with regular expressions. To be safe it is good to use t
 grep -E "nose|ring" lear.txt 
 ```
 
->Write a command to find all occurrences of two capital letters followed by a space. 
+>🧩 Challenge
+>Write a command to find all occurrences of ! and the end of the line in `LaFontaine.txt`
+>Write a command to find all occurrences of two capital letters followed by a dot in the `lear.txt`. 
 
 ### 2.9.2. Find and replace? 
 Often times you will have a file that you want to fix so that it doesn't contain certain characters or the like. One option for finding and replacing things within a text file is the command `sed`. 
