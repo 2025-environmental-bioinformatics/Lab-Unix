@@ -551,11 +551,14 @@ As you can see this is printing all the lines that contain the word `Cat` within
 You can also use `grep` with regular expressions. To be safe it is good to use the flag `-E` to force it to read the string passed as a regular expression. 
 
 ```bash
-grep -E "nose|ring" lear.txt 
+grep -E 'nose|ring' lear.txt
 ```
+A very useful `grep` flag is the `v`. This will return all the lines that do NOT have the pattern you specified
 
 >🧩 Challenge
+>
 >Write a command to find all occurrences of ! and the end of the line in `LaFontaine.txt`
+>
 >Write a command to find all occurrences of two capital letters followed by a dot in the `lear.txt`. 
 
 ### 2.9.2. Find and replace? 
@@ -579,7 +582,10 @@ As you can see -- only the first occurrence of `a` was replaced. To replace all 
 ```bash 
 sed -e 's/a/A/g' fortune5
 ```
-> Write a `sed` command to find and replace the letters `a` or `s` with `!`.
+
+>🧩 Challenge
+>
+>Write a command that will replace in fortune5 either `a` or `s` with `!`
 
 ### 2.9.3. Finding files
 Sometimes, even with the best organization skills you forget where you put things. While `grep` searches a particular file-- `find` is used to search your file system. Go back to `unix-folders-master/`. 
